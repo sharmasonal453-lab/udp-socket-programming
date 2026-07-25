@@ -1,0 +1,160 @@
+# UDP Echo Client-Server in C
+
+A simple UDP Echo Client-Server application developed in C using Linux Socket Programming APIs.
+
+---
+
+## 📌 Features
+
+- UDP Server
+- UDP Client
+- IPv4 Socket Programming
+- Echo Communication
+- Blocking I/O
+- Error Handling
+- Wireshark Packet Analysis
+
+---
+
+## 🛠 Technologies Used
+
+- C Programming
+- Linux Socket API
+- UDP Protocol
+- IPv4
+- Wireshark
+- GCC Compiler
+
+---
+
+## 📂 Project Structure
+
+```
+UDP-Echo-Client-Server
+│
+├── src
+│   ├── udp_server.c
+│   └── udp_client.c
+│
+├── README.md
+└── Makefile
+```
+
+---
+
+## Socket APIs Used
+
+- socket()
+- bind()
+- sendto()
+- recvfrom()
+- close()
+- inet_pton()
+- inet_ntoa()
+- htons()
+- ntohs()
+
+---
+
+## Build
+
+```bash
+gcc src/udp_server.c -o udp_server
+gcc src/udp_client.c -o udp_client
+```
+
+---
+
+## Run
+
+### Terminal 1
+
+```bash
+./udp_server
+```
+
+### Terminal 2
+
+```bash
+./udp_client
+```
+
+---
+
+## Example Output
+
+### Server
+
+```
+Socket created successfully
+Client IP : 127.0.0.1
+Client Port : 51965
+Received Message : Hello Sonal
+```
+
+### Client
+
+```
+Enter Message :
+Hello Sonal
+
+Message Sent Successfully
+Echo from Server : Hello Sonal
+```
+
+---
+
+## Packet Flow
+
+```
+Client
+   |
+sendto()
+   |
+   v
+Kernel
+   |
+UDP Packet
+   |
+Loopback Interface
+   |
+recvfrom()
+   |
+Server
+   |
+sendto()
+   |
+Client
+```
+
+---
+
+## Wireshark Verification
+
+The application was verified using Wireshark.
+
+Observed:
+
+- Source IP : 127.0.0.1
+- Destination IP : 127.0.0.1
+- Source Port : Ephemeral Port
+- Destination Port : 5000
+- UDP Payload : Hello Sonal
+
+---
+
+## Learning Outcomes
+
+- Linux Socket Programming
+- UDP Communication
+- User Space vs Kernel Space
+- Network Byte Order
+- IPv4 Addressing
+- Wireshark Packet Analysis
+- Debugging Socket Applications
+
+---
+
+## Author
+
+**Sonal Sharma**
